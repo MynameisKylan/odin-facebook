@@ -1,6 +1,9 @@
 <div class='post'>
   <%= render partial: 'posts/post', locals: {post: @post} %>
 </div>
+<div class='comments'>
+  <%= render partial: 'posts/comments', locals: {post: @post} %>
+</div>
 
 <% if current_user == @post.user %>
   <%= link_to 'Edit', edit_post_path(@post) %> 

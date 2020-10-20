@@ -3,8 +3,10 @@
 <% @posts.each do |post| %>
   <div class='post'>
     <%= image_tag post.user.profile_picture.thumb.url %>
-    <%= render partial: 'posts/post', locals: {post: post} %>
     <%= link_to 'Show Post', post_path(post) %>
+    <%= render partial: 'posts/post', locals: {post: post} %>
+    <%= render partial: 'posts/comments', locals: {post: post} %>
+    <%= render partial: 'comments/form', locals: {post: post} %>
   </div>
 <% end %>
 

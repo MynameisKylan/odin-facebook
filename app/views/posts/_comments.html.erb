@@ -1,0 +1,9 @@
+<h3>Comments</h3>
+
+<% post.comments.each do |comment| %>
+  <p>
+    <%= comment.user.first_name %> <%= comment.user.last_name %> said:<br/>
+    <%= comment.content %><br/>
+    <%= time_ago_in_words(comment.created_at)%> ago
+  </p>
+<% end %>

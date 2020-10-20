@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates_processing_of :profile_picture
 
   has_many :posts
+  has_many :comments
 
   private
 

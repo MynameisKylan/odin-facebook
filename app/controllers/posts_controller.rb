@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :index]
   before_action :verify_user, only: [:edit, :update, :destroy]
 
   # GET /posts
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.includes(:comments).find(params[:id])
   end
 
   # GET /posts/new
@@ -63,6 +65,10 @@ class PostsController < ApplicationController
   end
 
   private
+    def set_comment
+      @comment = Comment.new
+    end
+
     def verify_user
       unless current_user == @post.user
         flash.notice = 'You can\'t edit another user\'s posts'
