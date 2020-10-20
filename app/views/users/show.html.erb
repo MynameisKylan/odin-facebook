@@ -2,7 +2,7 @@
 
 <h3><%= @user.first_name %> <%= @user.last_name %></h3>
 
-<% if @user.profile_picture %>
+<% unless @user.profile_picture.nil? %>
   <div class='image'><%= image_tag @user.profile_picture.profile.url %></div>
 <% end %>
 

@@ -1,2 +1,5 @@
-<p><%= post.user.first_name %> <%= post.user.last_name %></p>
-<p><%= post.content %></p>
+<div>
+  <p><%= post.user.first_name %> <%= post.user.last_name %></p>
+  <p><%= post.content %></p>
+  <p><%= time_ago_in_words(post.created_at) %> ago</p>
+</div>

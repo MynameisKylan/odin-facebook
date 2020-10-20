@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :verify_user, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc).all
   end
 
   # GET /posts/1
@@ -62,6 +63,13 @@ class PostsController < ApplicationController
   end
 
   private
+    def verify_user
+      unless current_user == @post.user
+        flash.notice = 'You can\'t edit another user\'s posts'
+        redirect_back(fallback_location: posts_path)
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

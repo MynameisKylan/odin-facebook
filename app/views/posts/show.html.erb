@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class='post'>
+  <%= render partial: 'posts/post', locals: {post: @post} %>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if current_user == @post.user %>
+  <%= link_to 'Edit', edit_post_path(@post) %> 
+<% end %>
 <%= link_to 'Back', posts_path %>
