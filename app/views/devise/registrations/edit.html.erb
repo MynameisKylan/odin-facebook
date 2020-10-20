@@ -32,11 +32,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_field :birthday %>
   </div>
@@ -49,12 +44,17 @@
   <div class="field">
     <% if current_user.profile_picture.url.present? %>
       <%= image_tag(current_user.profile_picture.url) %>
-      <%= f.label :remove_profile_picture do %>
-        <%= f.check_box :remove_profile_picture %>
-      <% end %>
+      <%= f.label :remove_profile_picture, 'Remove profile picture?' %>
+      <%= f.check_box :remove_profile_picture %>
     <% end %>
+    <%= f.label :profile_picture %>
     <%= f.file_field :profile_picture %>
     <%= f.hidden_field :profile_picture_cache %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">

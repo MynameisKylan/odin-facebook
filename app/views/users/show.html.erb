@@ -1,3 +1,25 @@
 <h1>User Profile</h1>
 
 <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+
+<% if @user.profile_picture %>
+  <div class='image'><%= image_tag @user.profile_picture.profile.url %></div>
+<% end %>
+
+<% if @user.birthday %>
+  <p>Birthday: <%= @user.birthday %></p>
+<% end %>
+
+<% if @user.location %>
+  <p>Lives in: <%= @user.location %></p>
+<% end %>
+
+<% if current_user == @user %>
+  <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
+<% end %>
+
+<h3>Posts</h3>
+
+<% @user.posts.each do |post| %>
+  <%= render partial: 'posts/post', locals: {post: post} %>
+<% end %>
