@@ -13,7 +13,7 @@
     <p id='notice' class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= render 'layouts/navbar'%>
+    <%= render 'layouts/navbar' unless @disable_nav %>
 
     <%= yield %>
   </body>
