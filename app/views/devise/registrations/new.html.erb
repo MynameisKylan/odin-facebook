@@ -44,12 +44,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :profile_picture %><br />
-    <%= f.file_field :profile_picture %>
-    <% if f.object.image? %>
-      <%= image_tag f.object.image.thumb.url %>
-      <%= f.label :remove_image %>
-      <%= f.check_box :remove_image %> 
+    <%= f.label :profile_picture do %><br />
+      <%= f.file_field :profile_picture %>
+      <%= f.hidden_field :profile_picture_cache %>
     <% end %>
   </div>
 
