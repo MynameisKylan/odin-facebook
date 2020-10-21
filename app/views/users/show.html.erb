@@ -16,6 +16,10 @@
 
 <% if current_user == @user %>
   <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
+<% elsif @user.incoming_friend_requests.pluck(:from_id).include?(current_user.id) %>
+  <p>Friend Request Sent</p>
+<% else %>
+  <p><%= link_to 'Send Friend Request', friend_requests_path(recipient_id: @user.id), method: :post %></p>
 <% end %>
 
 <h3>Posts</h3>
@@ -23,3 +27,11 @@
 <% @user.posts.each do |post| %>
   <%= render partial: 'posts/post', locals: {post: post} %>
 <% end %>
+
+<h3>Friends</h3>
+
+<ul>
+<% @user.friends.each do |friend| %>
+  <li><%= link_to friend.first_name + ' ' + friend.last_name, user_path(friend) %> </li>
+<% end %>
+</ul>

@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.includes(:user).order(created_at: :desc).all
+    friend_ids = current_user.friends.pluck(:id) << current_user.id
+    @posts = Post.includes(:user).where(user_id: friend_ids).order(created_at: :desc)
   end
 
   # GET /posts/1
