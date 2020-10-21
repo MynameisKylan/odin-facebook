@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.includes(:comments).find(params[:id])
+    @post = Post.includes(:comments, :likes).find(params[:id])
   end
 
   # GET /posts/new

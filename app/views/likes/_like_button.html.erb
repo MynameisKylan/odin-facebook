@@ -1,0 +1,10 @@
+<% like = current_user.liked_posts.include?(post) ? Like.find_by(post_id: post.id, user_id: current_user.id) : nil %>
+
+<% if like %>
+  <%= link_to 'Unlike Post', like_path(like), method: :delete %>
+<% else %>
+  <%= form_with url: likes_path, local: true do |f| %>
+    <%= f.hidden_field :post_id, value: post.id %>
+    <%= f.submit 'Like Post' %>
+  <% end %>
+<% end %>
