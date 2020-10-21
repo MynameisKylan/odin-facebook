@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :liked_posts, through: :likes, class_name: 'Post', source: 'post'
+  has_many :friendships
+  has_many :friends, through: :friendships
+  has_many :incoming_friend_requests, class_name: 'FriendRequest', foreign_key: 'recipient_id'
 
   private
 
