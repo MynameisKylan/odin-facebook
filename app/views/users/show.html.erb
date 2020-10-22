@@ -18,6 +18,8 @@
   <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
 <% elsif @user.incoming_friend_requests.pluck(:from_id).include?(current_user.id) %>
   <p>Friend Request Sent</p>
+<% elsif current_user.friends.include?(@user) %>
+  <p>You are friends with <%= @user.first_name %></p>
 <% else %>
   <p><%= link_to 'Send Friend Request', friend_requests_path(recipient_id: @user.id), method: :post %></p>
 <% end %>
