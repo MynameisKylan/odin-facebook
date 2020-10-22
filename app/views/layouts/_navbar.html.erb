@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
   <%= link_to 'Home', posts_path %>
+  <%= link_to 'Requests', friend_requests_path %>
   <%= link_to 'Find Friends', users_path %>
   <%= link_to 'My Profile', user_path(current_user) %>
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
