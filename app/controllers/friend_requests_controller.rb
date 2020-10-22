@@ -21,6 +21,9 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-  
+    request = FriendRequest.find(params[:id])
+    request.destroy
+    flash.notice = 'Request Deleted'
+    redirect_to friend_requests_path
   end
 end
