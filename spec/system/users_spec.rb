@@ -1,8 +1,10 @@
 require 'rails_helper'
+require './spec/support/helpers'
 
 RSpec.describe "Users", type: :system do
   before do
     driven_by(:rack_test)
+    create(:user, first_name: 'whatever', last_name: 'something', email: 'fake@mail.com', password: 'password')
   end
 
   describe 'login' do
@@ -33,13 +35,17 @@ RSpec.describe "Users", type: :system do
 
     context 'email and password are valid' do
       it 'logs user in and redirects to news feed' do
-        user = create(:user, first_name: 'whatever', last_name: 'something', email: 'fake@mail.com', password: 'password')
-        visit '/users/sign_in'
-        fill_in 'Email', with: 'fake@mail.com'
-        fill_in 'Password', with: 'password'
-        click_on 'Log in'
+        login
         expect(page).to have_content('Posts')
       end
+    end
+  end
+
+  describe 'logout' do
+    it 'logs user out and redirects to log in page' do
+      login
+      click_on 'Sign Out'
+      expect(page).to have_content('Sign in')
     end
   end
 end

@@ -1,5 +1,9 @@
 <h1>Posts</h1>
 
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+
 <% @posts.each do |post| %>
   <div class='post'>
     <%= image_tag post.user.profile_picture.thumb.url %>
@@ -12,6 +16,3 @@
   </div>
 <% end %>
 
-<br>
-
-<%= link_to 'New Post', new_post_path %>

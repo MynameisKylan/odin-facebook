@@ -1,8 +1,7 @@
-<h3>Post a Comment</h3>
-
 <%= form_with model: @comment, local: true do |f| %>
   <%= f.hidden_field :post_id, value: post.id %>
   <p>
+    <%= f.label :content, 'Post a Comment' %>
     <%= f.text_area :content %>
   </p>
   <p>
