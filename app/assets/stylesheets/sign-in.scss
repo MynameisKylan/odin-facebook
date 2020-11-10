@@ -1,14 +1,5 @@
 // Styles related to Devise sign-in/login/sign-up views
-
-$odin-color:#cc9543;
-
-@mixin box-shadow {
-  box-shadow:0 0.05em 0.25em 0 rgba(0,0,0,0.5);
-}
-
-@mixin light-border {
-  border: 1px solid rgba(0,0,0,0.1);
-}
+@import 'variables';
 
 .row {
   width:960px;
@@ -28,7 +19,7 @@ $odin-color:#cc9543;
   font-size:1.5em;
 }
 
-.login {
+.login-container {
   @include box-shadow;
   @include light-border;
   border-radius: 5px;
@@ -36,7 +27,10 @@ $odin-color:#cc9543;
 }
 
 #user_email,
-#user_password {
+#user_password,
+#user_first_name,
+#user_last_name,
+#user_password_confirmation {
   padding: 1em;
   border-radius: 8px;
   width: 300px;
@@ -44,7 +38,7 @@ $odin-color:#cc9543;
   @include light-border;
 }
 
-input[type='submit'] {
+.login {
   @include light-border;
   padding:1em 0;
   margin:0 auto;
@@ -57,7 +51,7 @@ input[type='submit'] {
   font-weight:bold;
 }
 
-input[type='submit']:hover {
+.login:hover {
   opacity:0.8;
   transition:opacity 0.3s ease;
 }

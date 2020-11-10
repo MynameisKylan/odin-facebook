@@ -1,60 +1,54 @@
-<h1>Odin-Facebook</h1>
+<div class='sign-up-container'>
+  <h1>Sign up</h1>
 
-<h2>Sign up</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.text_field :first_name, autofocus: true, placeholder: 'First Name' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+    <div class="field">
+      <%= f.text_field :last_name, placeholder: 'Last Name' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
+    <div class="field">
+      <%= f.email_field :email, autocomplete: "email", placeholder: 'Email' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: 'New Password' %>
+      <% if @minimum_password_length %>
+      <em style='display:block; margin-top:0.5em;'>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <h2 class='optional'>Optional Profile Info</h2>
 
-  <h3>Optional Profile Info</h3>
+    <div class="field">
+      <%= f.label :birthday %><br /><br />
+      <%= f.date_field :birthday %>
+    </div>
 
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_field :birthday %>
-  </div>
+    <div class="field">
+      <%= f.text_field :location, placeholder: 'Location' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
+    <div class="field">
+      <%= f.label :profile_picture do %>Profile Picture<br /><br />
+        <%= f.file_field :profile_picture %>
+        <%= f.hidden_field :profile_picture_cache %>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :profile_picture do %><br />
-      <%= f.file_field :profile_picture %>
-      <%= f.hidden_field :profile_picture_cache %>
-    <% end %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Sign up", class: 'button button-sign-up' %>
+    </div>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>

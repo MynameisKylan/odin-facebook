@@ -1,0 +1,25 @@
+@import 'variables';
+
+.sign-up-container {
+  width: 960px;
+  text-align:center;
+  margin-top:30px;
+}
+
+.optional {
+  color: $odin-color;
+}
+
+#user_birthday,
+#user_location {
+  padding: 1em;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 1em;
+  @include light-border;
+}
+
+.button-sign-up {
+  width: 300px;
+  margin: 30px 0;
+}

@@ -1,8 +1,4 @@
-$odin-color:#cc9543;
-
-@mixin box-shadow {
-  box-shadow:0 0.05em 0.25em 0 rgba(0,0,0,0.5);
-}
+@import 'variables';
 
 th {
   padding-bottom: 5px; }
@@ -49,4 +45,18 @@ div.actions {
 
 .input {
   border: 1px solid grey;
+}
+
+.button {
+  background:$odin-color;
+  @include box-shadow;
+  @include light-border;
+  color:white;
+  padding:1em;
+  border-radius:8px;
+}
+
+.button:hover {
+  opacity:0.8;
+  transition:all 0.3s ease;
 }
