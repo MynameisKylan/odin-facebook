@@ -1,0 +1,68 @@
+@font-face {
+  font-family: font-awesome-brands;
+  src: url(https://use.fontawesome.com/releases/v5.7.2/webfonts/fa-brands-400.woff2)
+}
+
+@mixin light-border {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.link {
+  margin: 1em auto;
+  text-align:center;
+  display:block;
+}
+
+.horizontal-divider {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  width: calc(100% - 2em);
+  margin: 0 auto;
+}
+
+.forgot-password {
+  text-decoration:none;
+}
+
+.forgot-password:hover {
+  text-decoration:underline;
+  text-decoration-color:inherit;
+}
+
+.sign-up {
+  background-color:#36a420;
+  width:50%;
+  padding:1em;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.sign-up:hover {
+  opacity: 0.8;
+  transition:opacity 0.3s ease;
+}
+
+.third-party {
+  @include light-border;
+  border-radius:8px;
+  width: 50%;
+  padding:1em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:inherit;
+}
+
+.facebook::before {
+  font-family: font-awesome-brands;
+  content:"\f09a";
+  color:#166fe5;
+  font-size:2em;
+}
+
+.facebook:hover {
+  background-color:rgba(0,0,0,0.1);
+  transition:all 0.3s ease;
+}

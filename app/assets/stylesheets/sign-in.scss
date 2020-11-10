@@ -1,0 +1,64 @@
+// Styles related to Devise sign-in/login/sign-up views
+
+$odin-color:#cc9543;
+
+@mixin box-shadow {
+  box-shadow:0 0.05em 0.25em 0 rgba(0,0,0,0.5);
+}
+
+@mixin light-border {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.row {
+  width:960px;
+  display:flex;
+  margin: 0 auto;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  top:150px;
+}
+
+.header {
+  width: 50%;
+}
+
+.subtitle {
+  font-size:1.5em;
+}
+
+.login {
+  @include box-shadow;
+  @include light-border;
+  border-radius: 5px;
+  background:white;
+}
+
+#user_email,
+#user_password {
+  padding: 1em;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 1em;
+  @include light-border;
+}
+
+input[type='submit'] {
+  @include light-border;
+  padding:1em 0;
+  margin:0 auto;
+  width: calc(100% - 2em);
+  display:block;
+  background-color:$odin-color;
+  border-radius: 8px;
+  color:white;
+  font-size: 1em;
+  font-weight:bold;
+}
+
+input[type='submit']:hover {
+  opacity:0.8;
+  transition:opacity 0.3s ease;
+}
+
