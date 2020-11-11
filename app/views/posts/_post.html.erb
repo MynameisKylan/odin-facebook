@@ -6,6 +6,8 @@
     <li><%= post.user.first_name %> <%= post.user.last_name %></li>
     <li><%= time_ago_in_words(post.created_at) %> ago</li>
   </ul>
+
+  <%= link_to 'Show Post', post_path(post), class:'post-link nav-link' %>
 </div>
 
 <p class='content'>

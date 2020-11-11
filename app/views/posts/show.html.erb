@@ -1,11 +1,20 @@
-<div class='post'>
-  <%= render partial: 'posts/post', locals: {post: @post} %>
-</div>
-<div class='comments'>
-  <%= render partial: 'posts/comments', locals: {post: @post} %>
-</div>
+<div class='container'>
+  <div class='post'>
+    <%= render partial: 'posts/post', locals: {post: @post} %>
 
-<% if current_user == @post.user %>
-  <%= link_to 'Edit', edit_post_path(@post) %> 
-<% end %>
-<%= link_to 'Back', posts_path %>
+    <div class='horizontal-divider full-width'></div>
+      
+      <%= render partial: 'likes/like_button', locals: {post: @post} %>
+
+      <div class='horizontal-divider full-width'></div>
+
+    <div class='comments'>
+      <%= render partial: 'posts/comments', locals: {post: @post} %>
+    </div>
+
+    <% if current_user == @post.user %>
+      <%= link_to 'Edit', edit_post_path(@post), class:'button button-small' %> 
+    <% end %>
+    <%= link_to 'Back', posts_path, class:'button button-small' %>
+  </div>
+</div>

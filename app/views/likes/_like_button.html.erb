@@ -2,12 +2,16 @@
 
 <div class='post-buttons-container'>
   <% if like %>
-    <%= link_to 'Unlike Post', like_path(like), method: :delete, class: 'like-button' %>
+    <%= link_to like_path(like), method: :delete, class: 'like-button' do %>
+      <span class='like-text'>Unlike</span>
+    <% end %>
   <% else %>
-    <%= link_to 'Like', likes_path(post_id: post.id), method: :post, class: 'like-button' %>
+    <%= link_to likes_path(post_id: post.id), method: :post, class: 'like-button' do %>
+      <i class='like-icon'></i> <span class='like-button-text'>Like</span>
+    <% end %>
   <% end %>
 
   <a href='#' class='comment-button'>
-    Comment
+    <i class='comment-icon'></i><span class='comment-button-text'>Comment</span>
   </a>
 </div>

@@ -1,3 +1,89 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'variables';
+
+.profile-picture-wrapper {
+  width: 160px;
+  margin:0 auto;
+}
+
+.profile-picture {
+  border-radius:50%;
+  margin:0 auto;
+  display:block;
+  width: 160px;
+  margin-top:30px;
+}
+
+.profile-info {
+  margin:0 auto;
+  display:block;
+  width:600px;
+  text-align:center;
+
+  .button {
+    display:block;
+    margin: 20px auto;
+    width: 30%;
+  }
+}
+
+.friend {
+  display:flex;
+  align-items:center;
+  padding:1em;
+  @include light-border;
+  box-sizing: border-box;
+  @include round-border;
+  @include box-shadow;
+}
+
+.col-2 {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+}
+
+.friend-trigger {
+  width:49%;
+  @include round-border;
+  margin: 10px 0;
+  display:block;
+  text-align:left;
+}
+
+.trigger-flex {
+  display:flex;
+}
+
+.friend-trigger:hover {
+  background-color:rgba(0,0,0,0.2);
+  transition:all 0.3s ease;
+}
+
+.update-button {
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.button-delete {
+  margin: 10px auto;
+  font-weight:bold;
+  background-color: firebrick;
+  cursor:pointer;
+}
+
+.buttons {
+  display:flex;
+  margin-left:auto;
+}
+
+.button-confirm,
+.button-ignore {
+  margin: 0 5px;
+}
+
+.requester-name {
+  align-self:center;
+}

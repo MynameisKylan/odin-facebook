@@ -1,41 +1,49 @@
-<h1>User Profile</h1>
-
-<h3><%= @user.first_name %> <%= @user.last_name %></h3>
-
 <% unless @user.profile_picture.nil? %>
-  <div class='image'><%= image_tag @user.profile_picture.profile.url %></div>
+  <div class='profile-picture-wrapper'>
+    <%= image_tag @user.profile_picture.profile.url,class:'profile-picture' %>
+  </div>
 <% end %>
 
-<% if @user.birthday %>
-  <p>Birthday: <%= @user.birthday %></p>
-<% end %>
+<div class='profile-info'>
+  <h2 class=''><%= @user.first_name %> <%= @user.last_name %></h2>
 
-<% if @user.location %>
-  <p>Lives in: <%= @user.location %></p>
-<% end %>
+  <% if @user.birthday %>
+    <p>Birthday: <%= @user.birthday %></p>
+  <% end %>
 
-<% if current_user == @user %>
-  <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
-<% elsif @user.incoming_friend_requests.pluck(:from_id).include?(current_user.id) %>
-  <p>Friend Request Sent</p>
-<% elsif current_user.friends.include?(@user) %>
-  <p>You are friends with <%= @user.first_name %></p>
-<% elsif @user.outgoing_friend_requests.pluck(:recipient_id).include?(current_user.id) %>
-  <p><%= link_to @user.first_name + ' wants to be your friend', friend_requests_path %></p>
-<% else %>
-  <p><%= link_to 'Send Friend Request', friend_requests_path(recipient_id: @user.id), method: :post %></p>
-<% end %>
+  <% if @user.location %>
+    <p>Lives in: <%= @user.location %></p>
+  <% end %>
 
-<h3>Posts</h3>
+  <% if current_user == @user %>
+    <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user), class:'button' %></p>
+  <% elsif @user.incoming_friend_requests.pluck(:from_id).include?(current_user.id) %>
+    <p>Friend Request Sent</p>
+  <% elsif current_user.friends.include?(@user) %>
+    <p>You are friends with <%= @user.first_name %></p>
+  <% elsif @user.outgoing_friend_requests.pluck(:recipient_id).include?(current_user.id) %>
+    <p><%= link_to @user.first_name + ' wants to be your friend', friend_requests_path %></p>
+  <% else %>
+    <p><%= link_to 'Send Friend Request', friend_requests_path(recipient_id: @user.id), method: :post, class:'button' %></p>
+  <% end %>
+</div>
 
-<% @user.posts.each do |post| %>
-  <%= render partial: 'posts/post', locals: {post: post} %>
-<% end %>
+<div class='container'>
+  <h3>Posts</h3>
 
-<h3>Friends</h3>
+  <% @user.posts.each do |post| %>
+    <div class='post'>
+      <%= render partial: 'posts/post', locals: {post: post} %>
+    </div>
+  <% end %>
+</div>
 
-<ul>
-<% @user.friends.each do |friend| %>
-  <li><%= link_to friend.first_name + ' ' + friend.last_name, user_path(friend) %> </li>
-<% end %>
-</ul>
+<div class='container'>
+  <h3>Friends</h3>
+
+  <div class='col-2'>
+    <% @user.friends.each do |friend| %>
+      <%= render partial: 'friend', locals: {request:false, friend: friend} %>
+    <% end %>
+  </div>
+</div>

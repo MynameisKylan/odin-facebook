@@ -65,6 +65,10 @@ div.actions {
 
 .field {
   padding: 1em;
+
+  * {
+    margin: 5px 0;
+  }
 }
 
 .input {
@@ -79,6 +83,17 @@ div.actions {
   padding:1em;
   border-radius:8px;
   text-decoration:none;
+  display:block;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.button-small {
+  width: 80px;
+  text-align:center;
+  margin: 10px 0;
+  display:inline-block;
+  padding:0.5em;
 }
 
 .button:hover {
@@ -94,4 +109,36 @@ div.actions {
 
 .full-width {
   width:100%;
+}
+
+h1 {
+  font-size:3em;
+  font-weight:bold;
+  color:#cc9543;
+  padding-bottom:0.5em;
+  margin-top:0.5em;
+}
+
+h2 {
+  font-size:2em;
+  font-weight:bold;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+
+h3 {
+  font-size:1.4em;
+  font-weight:bold;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align:center;
+  margin:0 auto;
 }

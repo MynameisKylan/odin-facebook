@@ -1,10 +1,8 @@
 <%= link_to 'New Post', new_post_path, class:'button new-post' %>
 
-<div class='posts-container'>
+<div class='container'>
   <% @posts.each do |post| %>
     <div class='post'>
-      
-      <%= link_to 'Show Post', post_path(post) %>
       <%= render partial: 'posts/post', locals: {post: post} %>
       <%# <%= render partial: 'likes/likes', locals: {post: post} %>
 

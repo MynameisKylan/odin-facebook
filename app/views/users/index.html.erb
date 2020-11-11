@@ -1,6 +1,14 @@
-<h1>Find Friends</h1>
+<div class='container center'>
+  <h1>Find Friends</h1>
 
-<% @users.each do |user| %>
-  <%= image_tag user.profile_picture.thumb.url %>
-  <%= link_to user.first_name + ' ' + user.last_name, user_path(user) %>
-<% end %>
+  <div class='col-2'>
+    <% @users.each do |user| %>
+      <%= link_to user_path(user), class:'friend-trigger' do %>
+        <div class='friend'>
+          <%= image_tag user.profile_picture.thumb.url, class:'profile-img' %>
+          <%= user.first_name + ' ' + user.last_name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

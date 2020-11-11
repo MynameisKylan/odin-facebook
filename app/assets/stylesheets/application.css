@@ -18,19 +18,8 @@ html {
   font-family: 'DejaVu Sans', 'FreeSerif', 'Liberation Sans', sans-serif;
 }
 
- html {
+html {
   background:#f0f2f5;
  }
 
- h1 {
-  font-size:3em;
-  font-weight:bold;
-  color:#cc9543;
-  padding-bottom:0.5em;
-}
 
-h2 {
-  font-size:2em;
-  font-weight:bold;
-  padding-bottom:0.5em;
-}

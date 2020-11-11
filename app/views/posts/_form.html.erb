@@ -10,13 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class:'post-area' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Post', class:'button center' %>
   </div>
 <% end %>

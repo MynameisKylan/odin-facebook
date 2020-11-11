@@ -1,23 +1,19 @@
-<h1>Friend Requests</h1>
+<div class='container center'>
+  <h1>Friend Requests</h1>
 
-<h3>Incoming Requests</h3>
-<% @incoming_requests_users.each do |user, id| %>
-  <div>
-    <%= image_tag user.profile_picture.thumb.url %><br>
-    <%= user.first_name + ' ' + user.last_name %><br>
-    <%= link_to 'Confirm', friendships_path(recipient_id: user.id, request_id: id), method: :post %>
-    <%= link_to 'Delete', friend_request_path(id: id), method: :delete %>
+  <h3>Incoming Requests</h3>
+  <% @incoming_requests_users.each do |user, id| %>
+    <%= render partial: 'users/friend', locals: {request: true, friend: user, id: id} %>
+  <% end %>
+
+  <% current_user.incoming_friend_requests.each do |req| %>
+    <% user = User.find(req.from_id) %>
+  <% end %>
+
+  <h3>Sent Requests</h3>
+  <div class='col-2'>
+    <% @outgoing_requests_users.each do |user| %>
+      <%= render partial: 'users/friend', locals: {request:false, friend: user} %>
+    <% end %>
   </div>
-<% end %>
-
-<% current_user.incoming_friend_requests.each do |req| %>
-  <% user = User.find(req.from_id) %>
-<% end %>
-
-<h3>Pending Requests</h3>
-<% @outgoing_requests_users.each do |user| %>
-  <div>
-    <%= image_tag user.profile_picture.thumb.url %>
-    <%= link_to user.first_name + ' ' + user.last_name, user_path(user) %>
-  </div>
-<% end %>
+</div>

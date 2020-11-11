@@ -3,11 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'variables';
 
-.posts-container {
-  width:600px;
-  margin:0 auto;
-}
-
 .new-post {
   display:block;
   width:200px;
@@ -41,6 +36,11 @@
   color:$light-text;
 }
 
+.post-link {
+  margin-left:auto;
+  color:rgba(0, 0, 0, 0.6);
+}
+
 .content {
   margin:1em auto;
 }
@@ -59,9 +59,38 @@
   margin:2px 0;
 }
 
+.like-icon {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/7e8IC8dCOp2.png);
+  background-size:auto;
+  background-repeat:no-repeat;
+  display:inline-block;
+  background-position: 0 -208px;
+  width:18px;
+  height:18px;
+  margin-right:5px;
+}
+
+.comment-icon {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/7e8IC8dCOp2.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 0 -132px;
+  width:18px;
+  height:18px;
+  margin-right:5px;
+}
+
+.like-button-text,
+.comment-button-text {
+  position:relative;
+  top:2px;
+}
+
 .like-button,
 .comment-button {
-  display:inline-block;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   padding: 0.5em 0;
   flex:1;
   text-align:center;
@@ -95,6 +124,7 @@
   border:none;
   width:440px;
   font-family: 'DejaVu Sans', sans-serif;
+  resize:none;
 }
 
 .post-comment-button {
@@ -124,4 +154,25 @@
   position:relative;
   left: calc(45px + 0.5em);
   font-size:0.8em;
+  color:rgba(0, 0, 0, 0.6);
+}
+
+.post-area {
+  width: 60%;
+  height:100px;
+  @include light-border;
+  @include box-shadow;
+  @include round-border;
+  resize:none;
+  padding-top:10px;
+  padding-left:5px;
+}
+
+.nav-link {
+  text-decoration:underline;
+}
+
+.nav-link:hover {
+  color:$odin-color;
+  transition:all 0.3s ease;
 }

@@ -1,0 +1,12 @@
+<%= link_to user_path(friend), class:(request ? 'friend-trigger trigger-flex' : 'friend-trigger') do %>
+  <div class='friend'>
+    <%= image_tag friend.profile_picture.thumb.url, class:'profile-img' %>
+    <span class='requester-name'><%= friend.first_name + ' ' + friend.last_name %></span>
+    <% if request %>
+      <div class='buttons'>
+        <%= link_to 'Confirm', friendships_path(recipient_id: friend.id, request_id: id), method: :post, class:'button button-confirm' %>
+        <%= link_to 'Ignore', friend_request_path(id: id), method: :delete, class:'button button-ignore' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
