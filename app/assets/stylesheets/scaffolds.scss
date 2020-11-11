@@ -1,5 +1,18 @@
 @import 'variables';
 
+// offset for navbar
+.content-container {
+  position:relative;
+  top:53px;
+  padding-bottom:30px;
+  width:100%;
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
 th {
   padding-bottom: 5px; }
 
@@ -10,8 +23,19 @@ div.field,
 div.actions {
   margin-bottom: 10px; }
 
+.alert,
+#notice {
+  display:block;
+  text-align:center;
+  padding: 1em;
+}
+
 #notice {
   color: green; }
+
+.alert {
+  color:red;
+}
 
 .field_with_errors {
   padding: 2px;
@@ -54,9 +78,20 @@ div.actions {
   color:white;
   padding:1em;
   border-radius:8px;
+  text-decoration:none;
 }
 
 .button:hover {
   opacity:0.8;
   transition:all 0.3s ease;
+}
+
+.horizontal-divider {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  width: calc(100% - 2em);
+  margin: 0 auto;
+}
+
+.full-width {
+  width:100%;
 }

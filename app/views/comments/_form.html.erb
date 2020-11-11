@@ -1,10 +1,6 @@
-<%= form_with model: @comment, local: true do |f| %>
+<%= form_with model: @comment, local: true, class:'comment-container' do |f| %>
+  <%= image_tag current_user.profile_picture.thumb.url, class: 'comment-pic' %>
   <%= f.hidden_field :post_id, value: post.id %>
-  <p>
-    <%= f.label :content, 'Post a Comment' %>
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.submit 'Post' %>
-  </p>
+  <%= f.text_area :content, placeholder: 'Write a Comment...', class:'comment-area' %>
+  <%= f.submit 'Post', class:'post-comment-button' %>
 <% end %>

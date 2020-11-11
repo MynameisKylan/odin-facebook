@@ -1,10 +1,13 @@
 <% like = current_user.liked_posts.include?(post) ? Like.find_by(post_id: post.id, user_id: current_user.id) : nil %>
 
-<% if like %>
-  <%= link_to 'Unlike Post', like_path(like), method: :delete %>
-<% else %>
-  <%= form_with url: likes_path, local: true do |f| %>
-    <%= f.hidden_field :post_id, value: post.id %>
-    <%= f.submit 'Like Post' %>
+<div class='post-buttons-container'>
+  <% if like %>
+    <%= link_to 'Unlike Post', like_path(like), method: :delete, class: 'like-button' %>
+  <% else %>
+    <%= link_to 'Like', likes_path(post_id: post.id), method: :post, class: 'like-button' %>
   <% end %>
-<% end %>
+
+  <a href='#' class='comment-button'>
+    Comment
+  </a>
+</div>

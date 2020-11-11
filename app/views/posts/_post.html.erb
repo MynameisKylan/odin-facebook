@@ -1,5 +1,22 @@
-<div>
-  <p><%= post.user.first_name %> <%= post.user.last_name %></p>
-  <p><%= post.content %></p>
-  <p><%= time_ago_in_words(post.created_at) %> ago</p>
+<div class='poster-info'>
+  <a href=<%= user_path(post.user) %>>
+    <%= image_tag post.user.profile_picture.thumb.url, class:'profile-img' %>
+  </a>
+  <ul class='text-info'>
+    <li><%= post.user.first_name %> <%= post.user.last_name %></li>
+    <li><%= time_ago_in_words(post.created_at) %> ago</li>
+  </ul>
+</div>
+
+<p class='content'>
+  <%= post.content %>
+</p>
+
+<div class='post-info'>
+  <p>
+    <%= post.likes.count %> likes
+  </p>
+  <p>
+    <%= post.comments.count %> comments
+  </p>
 </div>

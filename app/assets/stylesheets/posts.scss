@@ -1,7 +1,127 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'variables';
+
+.posts-container {
+  width:600px;
+  margin:0 auto;
+}
+
+.new-post {
+  display:block;
+  width:200px;
+  text-align:center;
+  margin:20px auto;
+}
+
 .post {
-  border: 1px solid blue;
-  margin-top: 2px;
+  margin:0 auto;
+  background-color:#dfdfdf;
+  padding: 1em;
+  border-radius:8px;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width:50px;
+  height:50px;
+  margin-right:10px;
+}
+
+.poster-info {
+  display:flex; 
+  align-items:center;
+}
+
+.text-info {
+  list-style:none;
+  font-size:0.9em;
+  color:$light-text;
+}
+
+.content {
+  margin:1em auto;
+}
+
+.post-info {
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+  font-size:0.9em;
+  color:$light-text;
+}
+
+.post-buttons-container {
+  display:flex;
+  justify-content:space-around;
+  margin:2px 0;
+}
+
+.like-button,
+.comment-button {
+  display:inline-block;
+  padding: 0.5em 0;
+  flex:1;
+  text-align:center;
+  color:$light-text;
+  border-radius: 6px;
+}
+
+.like-button:hover,
+.comment-button:hover {
+  background-color:rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.comment-container {
+  display:flex;
+  margin: 10px 0;
+}
+
+.comment-pic {
+  border-radius: 50%;
+  width:35px;
+  height:35px;
+  margin-right:10px;
+}
+
+.comment-area {
+  height:25px;
+  border-radius: 999px;
+  padding-top:10px;
+  padding-left:10px;
+  border:none;
+  width:440px;
+  font-family: 'DejaVu Sans', sans-serif;
+}
+
+.post-comment-button {
+  margin-left:auto;
+  margin-right:0;
+}
+
+.comment {
+  display:flex;
+  margin: 5px 0;
+}
+
+.comment-author {
+  font-weight:bold;
+}
+
+.comment-main {
+  font-size:0.9em;
+  color:$light-text;
+  background-color:white;
+  @include round-border;
+  padding:0.5em; 
+  flex:1;
+}
+
+.timestamp {
+  position:relative;
+  left: calc(45px + 0.5em);
+  font-size:0.8em;
 }

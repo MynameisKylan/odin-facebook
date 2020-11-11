@@ -1,9 +1,15 @@
 $odin-color:#cc9543;
 
+$light-text:rgba(0,0,0,0.6);
+
 @mixin box-shadow {
   box-shadow:0 0.05em 0.25em 0 rgba(0,0,0,0.5);
 }
 
 @mixin light-border {
   border: 1px solid rgba(0,0,0,0.1);
+}
+
+@mixin round-border {
+  border-radius:8px;
 }

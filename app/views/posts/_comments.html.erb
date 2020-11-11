@@ -1,9 +1,14 @@
-<h3>Comments</h3>
 
 <% post.comments.each do |comment| %>
-  <p>
-    <%= comment.user.first_name %> <%= comment.user.last_name %> said:<br/>
-    <%= comment.content %><br/>
-    <%= time_ago_in_words(comment.created_at)%> ago
-  </p>
+  <div class='comment'>
+    <a href=<%= user_path(comment.user) %>><%= image_tag comment.user.profile_picture.thumb.url, class:'comment-pic' %></a>
+    <div class='comment-main'>
+      <p class='comment-author'>
+        <a href=<%= user_path(comment.user) %> ><%= comment.user.first_name %> <%= comment.user.last_name %></a>
+      </p>
+      <%= comment.content %><br/>
+    </div>
+  </div>
+
+  <p class='timestamp'><%= time_ago_in_words(comment.created_at)%> ago</p>
 <% end %>

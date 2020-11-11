@@ -10,11 +10,13 @@
   </head>
 
   <body>
-    <p id='notice' class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <%= render 'layouts/navbar' unless @disable_nav %>
 
-    <%= yield %>
+    <div class='content-container'>
+      <p id='notice' class="notice" style=<%='display:none' unless notice%>><%= notice %></p>
+      <p class="alert" style=<%='display:none' unless alert%>><%= alert %></p>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

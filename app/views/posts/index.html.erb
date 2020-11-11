@@ -1,18 +1,22 @@
-<h1>Posts</h1>
+<%= link_to 'New Post', new_post_path, class:'button new-post' %>
 
-<br>
+<div class='posts-container'>
+  <% @posts.each do |post| %>
+    <div class='post'>
+      
+      <%= link_to 'Show Post', post_path(post) %>
+      <%= render partial: 'posts/post', locals: {post: post} %>
+      <%# <%= render partial: 'likes/likes', locals: {post: post} %>
 
-<%= link_to 'New Post', new_post_path %>
+      <div class='horizontal-divider full-width'></div>
+      
+      <%= render partial: 'likes/like_button', locals: {post: post} %>
 
-<% @posts.each do |post| %>
-  <div class='post'>
-    <%= image_tag post.user.profile_picture.thumb.url %>
-    <%= link_to 'Show Post', post_path(post) %>
-    <%= render partial: 'posts/post', locals: {post: post} %>
-    <%= render partial: 'likes/likes', locals: {post: post} %>
-    <%= render partial: 'likes/like_button', locals: {post: post} %>
-    <%= render partial: 'posts/comments', locals: {post: post} %>
-    <%= render partial: 'comments/form', locals: {post: post} %>
-  </div>
-<% end %>
+      <div class='horizontal-divider full-width'></div>
+
+      <%= render partial: 'comments/form', locals: {post: post} %>
+      <%= render partial: 'posts/comments', locals: {post: post} %>
+    </div>
+  <% end %>
+</div>
 
