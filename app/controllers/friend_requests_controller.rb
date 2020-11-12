@@ -15,7 +15,7 @@ class FriendRequestsController < ApplicationController
     if request.save
       flash.notice = 'Friend Request Sent'
     else
-      flash.notice = "A request between you and #{recipient.first_name} already exists."
+      flash.notice = request.errors[:exists].empty? ? request.errors[:friends][0] : request.errors[:exists][0]
     end
     redirect_to user_path(recipient)
   end
