@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
   resources :likes, only: [:create, :destroy]
   resources :friend_requests, only: [:index, :create, :destroy]
-  resources :friendships, only: [:create, :destroy]
+  resources :friendships, only: [:create]
+  delete 'friendships', to: 'friendships#destroy'
 end

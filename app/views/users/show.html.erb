@@ -21,6 +21,7 @@
     <p>Friend Request Sent</p>
   <% elsif current_user.friends.include?(@user) %>
     <p>You are friends with <%= @user.first_name %></p>
+    <%= link_to 'Unfriend', friendships_path(user_id: current_user.id, friend_id: @user.id), method: :delete, class:'button' %>
   <% elsif @user.outgoing_friend_requests.pluck(:recipient_id).include?(current_user.id) %>
     <p><%= link_to @user.first_name + ' wants to be your friend', friend_requests_path %></p>
   <% else %>

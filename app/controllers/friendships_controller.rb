@@ -14,6 +14,14 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
+    friendship_1 = Friendship.find_by(user_id: params[:user_id], friend_id: params[:friend_id])
+    friendship_2 = Friendship.find_by(user_id: params[:friend_id], friend_id: params[:user_id])
 
+    friendship_1.destroy
+    friendship_2.destroy
+
+    flash.notice = "You are no longer friends with #{User.find(params[:friend_id]).first_name}."
+
+    redirect_back(fallback_location: root_path)
   end
 end
