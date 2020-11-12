@@ -11,7 +11,7 @@
     <p>Birthday: <%= @user.birthday %></p>
   <% end %>
 
-  <% unless @user.location.empty? %>
+  <% if @user.location && !@user.location.empty? %>
     <p>Lives in: <%= @user.location %></p>
   <% end %>
 
