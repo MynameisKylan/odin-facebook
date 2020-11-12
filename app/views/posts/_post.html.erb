@@ -16,9 +16,9 @@
 
 <div class='post-info'>
   <p>
-    <%= post.likes.count %> likes
+    <%= pluralize(post.likes.count, 'like') %> 
   </p>
   <p>
-    <%= post.comments.count %> comments
+    <%= pluralize(post.comments.count, 'comment') %> 
   </p>
 </div>
