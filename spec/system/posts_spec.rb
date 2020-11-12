@@ -12,8 +12,8 @@ RSpec.describe "Posts", type: :system do
     it 'creates new text post' do
       click_on 'New Post'
       expect(page).to have_content('New Post')
-      fill_in 'Content', with: 'text for new post'
-      click_on 'Create Post'
+      fill_in 'post_content', with: 'text for new post'
+      click_on 'Post'
       expect(page).to have_content('Post was successfully created')
       expect(page).to have_content('text for new post')
     end

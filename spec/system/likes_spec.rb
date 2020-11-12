@@ -12,17 +12,17 @@ RSpec.describe "Likes", type: :system do
   describe 'liking' do
     it 'like will be displayed on post' do
       visit '/'
-      click_button 'Like Post'
-      expect(page).to have_content(@user.first_name + ' liked this')
+      click_on 'Like'
+      expect(page).to have_link('Unlike')
     end
   end
 
   describe 'unliking' do
     it 'can unlike' do
       visit '/'
-      click_button 'Like Post'
-      click_on 'Unlike Post'
-      expect(page).to have_button('Like Post')
+      click_on 'Like'
+      click_on 'Unlike'
+      expect(page).to have_link('Like')
     end
   end
 end

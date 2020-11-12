@@ -36,7 +36,7 @@ RSpec.describe "Users", type: :system do
     context 'email and password are valid' do
       it 'logs user in and redirects to news feed' do
         login
-        expect(page).to have_content('Posts')
+        expect(page).to have_selector('.nav')
       end
     end
   end
