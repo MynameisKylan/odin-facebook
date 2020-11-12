@@ -11,7 +11,7 @@
     <p>Birthday: <%= @user.birthday %></p>
   <% end %>
 
-  <% if @user.location %>
+  <% unless @user.location.empty? %>
     <p>Lives in: <%= @user.location %></p>
   <% end %>
 
@@ -31,7 +31,7 @@
 <div class='container'>
   <h3>Posts</h3>
 
-  <% @user.posts.each do |post| %>
+  <% @user.posts.order(created_at: :desc).each do |post| %>
     <div class='post'>
       <%= render partial: 'posts/post', locals: {post: post} %>
     </div>
