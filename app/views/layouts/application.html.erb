@@ -13,8 +13,11 @@
     <%= render 'layouts/navbar' unless @disable_nav %>
 
     <div class='content-container'>
-      <p id='notice' class="notice" style=<%='display:none' unless notice%>><%= notice %></p>
-      <p class="alert" style=<%='display:none' unless alert%>><%= alert %></p>
+      <% flash.each do |key, msg| %>
+        <p class=<%=key.to_s%>>
+          <%= msg %>
+        </p>
+      <% end %>
 
       <%= yield %>
     </div>

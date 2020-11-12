@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     if @like.save
       flash.notice = 'You liked that post'
     else
-      flash.notice = 'Failed to like post. Please try again'
+      flash.alert = 'You\'ve already liked that'
     end
     redirect_to posts_path
   end
