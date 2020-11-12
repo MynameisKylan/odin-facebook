@@ -12,10 +12,10 @@ class FriendRequestsController < ApplicationController
     recipient = User.find(params[:recipient_id])
     request = recipient.incoming_friend_requests.build(from_id: current_user.id)
 
-    if request.save!
+    if request.save
       flash.notice = 'Friend Request Sent'
     else
-      flash.notice = 'Couldn\'t Send Friend Request. Please try again'
+      flash.notice = "A request between you and #{recipient.first_name} already exists."
     end
     redirect_to user_path(recipient)
   end
