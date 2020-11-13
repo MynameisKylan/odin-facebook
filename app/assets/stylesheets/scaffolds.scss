@@ -1,11 +1,16 @@
 @import 'variables';
 
+html {
+  overflow-x:hidden;
+}
+
 // offset for navbar
 .content-container {
   position:relative;
   top:53px;
   padding-bottom:30px;
-  width:100%;
+  width:100vw;
+  overflow:scroll;
 }
 
 a {
@@ -134,7 +139,7 @@ h3 {
 }
 
 .container {
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
 }
 

@@ -2,7 +2,7 @@
 @import 'variables';
 
 .row {
-  width:960px;
+  max-width:960px;
   display:flex;
   margin: 0 auto;
   justify-content:space-between;
@@ -12,11 +12,12 @@
 }
 
 .header {
-  width: 50%;
+  max-width: 50%;
 }
 
 .subtitle {
   font-size:1.5em;
+  margin-bottom:1em;
 }
 
 .login-container {
@@ -55,5 +56,29 @@
 .login:hover {
   opacity:0.8;
   transition:opacity 0.3s ease;
+}
+
+@media screen and (max-width: 970px) {
+  .row {
+    flex-direction: column;
+    text-align:center;
+    top:0;
+  }
+
+  .header {
+    max-width:90%;
+  }
+
+  .login-container {
+    max-width: 95%;
+  }
+
+  #user_email,
+  #user_password,
+  #user_first_name,
+  #user_last_name,
+  #user_password_confirmation {
+    max-width:85%;
+  }
 }
 

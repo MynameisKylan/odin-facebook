@@ -7,7 +7,7 @@
   height:53px;
   align-items:center;
   justify-content:center;
-  width:100%;
+  width:100vw;
   background-color: $odin-color;
   z-index:99;
   @include box-shadow;
@@ -19,9 +19,32 @@
   color:white;
   text-decoration:none;
   font-weight:bold;
+  text-align:center;
+  display:block;
 }
 
 .nav-item:hover {
   background-color:rgba(0,0,0,0.1);
   transition:all 0.3s ease;
+}
+
+@media screen and (max-width:670px) {
+  html {
+    margin:0;
+  }
+  .nav {
+    justify-content:space-between;
+  }
+
+  .nav-item {
+    background-color:rgba(0,0,0,0.1);
+    font-size:0.8em;
+  }
+}
+
+@media screen and (max-width:450px) {
+
+  .nav-item {
+    font-size:0.7em;
+  }
 }
