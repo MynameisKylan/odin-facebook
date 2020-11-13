@@ -10,7 +10,8 @@ html {
   top:53px;
   padding-bottom:30px;
   width:100vw;
-  overflow:scroll;
+  overflow-x:hidden;
+  overflow-y:scroll;
 }
 
 a {
