@@ -7,8 +7,6 @@
   margin: 0 auto;
   justify-content:space-between;
   align-items:center;
-  position:relative;
-  top:100px;
 }
 
 .header {
@@ -62,7 +60,6 @@
   .row {
     flex-direction: column;
     text-align:center;
-    top:0;
   }
 
   .header {
